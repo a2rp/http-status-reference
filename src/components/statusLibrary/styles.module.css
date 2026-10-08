@@ -1,0 +1,98 @@
+.library {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 28px 74px;
+
+    .libraryHeading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+    }
+
+    .sectionLabel { margin-bottom: 5px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+    h2 { color: var(--ink); font-size: clamp(23px, 3vw, 30px); font-weight: 750; letter-spacing: -0.035em; line-height: 1.2; }
+    .resultCount { padding-bottom: 3px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+
+    .searchRow { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .searchBox {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: min(100%, 560px);
+        min-height: 52px;
+        padding: 0 15px;
+        border: 1px solid #d6e0ec;
+        border-radius: 10px;
+        color: #8291a3;
+        background: white;
+        box-shadow: 0 2px 8px rgb(20 43 70 / 3%);
+
+        &:focus-within { border-color: #8da8e8; box-shadow: 0 0 0 3px rgb(49 92 206 / 10%); }
+        > svg { width: 18px; height: 18px; flex: 0 0 auto; }
+        input { width: 100%; min-width: 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 14px; }
+        input::placeholder { color: #9aa7b6; }
+        button { display: grid; width: 30px; height: 30px; flex: 0 0 auto; place-items: center; border: 0; border-radius: 6px; color: #738298; background: transparent; }
+        button:hover { color: var(--ink); background: #f1f4f8; }
+        button svg { width: 16px; height: 16px; }
+    }
+
+    .searchHint { color: #8390a0; font-size: 12px; text-align: right; }
+    .filters { display: flex; gap: 8px; overflow-x: auto; padding: 24px 0 18px; scrollbar-width: thin; }
+    .filter {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 38px;
+        flex: 0 0 auto;
+        padding: 0 11px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: #6b7a8d;
+        background: #edf1f6;
+        font-size: 12px;
+        font-weight: 650;
+
+        &:hover { border-color: #ccd7e5; }
+        &:focus-visible { outline: 3px solid rgb(49 92 206 / 24%); outline-offset: 2px; }
+        &.activeFilter { border-color: var(--navy); color: white; background: var(--navy); }
+    }
+    .filterCount { color: #91a0b2; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; }
+    .activeFilter .filterCount { color: #bac7d9; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 14px; }
+
+    .emptyState {
+        display: grid;
+        min-height: 300px;
+        align-content: center;
+        justify-items: center;
+        padding: 32px;
+        border: 1px dashed #cdd8e5;
+        border-radius: 14px;
+        color: var(--muted);
+        background: rgb(255 255 255 / 55%);
+        text-align: center;
+
+        .emptyCode { display: grid; width: 42px; height: 42px; margin-bottom: 14px; place-items: center; border-radius: 13px; color: var(--accent); background: var(--accent-soft); font-weight: 750; }
+        h3 { color: var(--ink); font-size: 17px; font-weight: 700; }
+        p { max-width: 370px; margin-top: 5px; font-size: 13px; }
+        button { margin-top: 16px; padding: 9px 13px; border: 1px solid #c8d4e2; border-radius: 8px; color: var(--accent-dark); background: white; font-size: 12px; font-weight: 700; }
+        button:hover { border-color: #879ecc; box-shadow: 0 2px 8px rgb(20 43 70 / 8%); }
+    }
+
+    .referenceNote { margin-top: 20px; color: #8491a1; font-size: 12px; text-align: center; }
+    .visuallyHidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) {
+        padding: 28px 16px 56px;
+        .libraryHeading { align-items: start; }
+        .searchRow { align-items: start; flex-direction: column; gap: 8px; }
+        .searchBox { width: 100%; }
+        .searchHint { text-align: left; }
+        .filters { margin-right: -16px; padding: 18px 16px 16px 0; }
+        .grid { grid-template-columns: minmax(0, 1fr); }
+        .resultCount { font-size: 11px; }
+    }
+}
