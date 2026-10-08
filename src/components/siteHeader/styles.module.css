@@ -1,0 +1,80 @@
+.header {
+    position: fixed;
+    z-index: 20;
+    inset: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding: 0 max(28px, calc((100vw - 1200px) / 2));
+    color: #f8fbff;
+    background: #13243b;
+    box-shadow: 0 6px 24px rgb(19 36 59 / 12%);
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 750;
+        letter-spacing: -0.04em;
+
+        .brandMark {
+            display: grid;
+            width: 34px;
+            height: 34px;
+            place-items: center;
+            border: 1px solid rgb(255 255 255 / 24%);
+            border-radius: 11px;
+            color: #dce7ff;
+            background: rgb(255 255 255 / 10%);
+            font-size: 18px;
+        }
+
+        .brandAccent { color: #9ab3ff; }
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        color: #c0ccda;
+        font-size: 14px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: color 160ms ease;
+
+            &:hover { color: #fff; }
+            svg { width: 14px; height: 14px; }
+        }
+    }
+
+    .repository {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid rgb(255 255 255 / 24%);
+        border-radius: 9px;
+        color: white;
+        font-size: 13px;
+        font-weight: 650;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+
+        svg { width: 17px; height: 17px; }
+        &:hover { border-color: #9ab3ff; box-shadow: 0 0 0 3px rgb(154 179 255 / 12%); }
+    }
+
+    @media (max-width: 620px) {
+        height: 64px;
+        padding: 0 16px;
+
+        .navigation { display: none; }
+        .repository { min-height: 38px; padding: 0 10px; }
+    }
+}
