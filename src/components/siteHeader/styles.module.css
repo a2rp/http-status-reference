@@ -45,7 +45,6 @@
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            transition: color 160ms ease;
 
             &:hover { color: #fff; }
             svg { width: 14px; height: 14px; }
